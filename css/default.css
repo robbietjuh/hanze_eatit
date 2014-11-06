@@ -1,0 +1,93 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+
+* {
+    -webkit-font-smoothing: antialiased;
+}
+
+html,body {
+    margin: 0;
+    padding: 0;
+    background-color: #acd589;
+}
+
+header {
+    margin: 100px;
+}
+
+header a {
+    width: 197px;
+    height: 161px;
+    margin: 0 auto;
+    display: block;
+    text-decoration: none;
+    background-image: url('/gfx/logo.png');
+}
+
+div.content {
+    width: 700px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #fff;
+    font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+    color: #666;
+    font-size: 14px;
+    text-align: justify;
+    line-height: 22px;
+}
+
+div.content h1 {
+    margin: 0 0 50px;
+    text-align: center;
+    color: #425134;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+div.content section.dishes {
+    clear: both;
+    margin-top: 50px;
+}
+
+div.content section.dishes article.dish {
+    margin-right: 15px;
+    display: block;
+    overflow: hidden;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    width: 205px;
+    float: left;
+}
+
+div.content section.dishes article.dish figure {
+    position: relative;
+    margin: 0;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+
+div.content section.dishes article.dish figure a {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+div.content section.dishes article.dish div.figcaption {
+    color: #999fa3;
+    margin-top: 15px;
+    font-size: 14px;
+    height: 50px;
+    overflow: hidden;
+}
+
+div.content section.dishes article.dish div.figcaption a {
+    margin: 0 0 5px;
+    color: #242526;
+    font-weight: 400;
+    text-decoration: none;
+    display: block;
+}
