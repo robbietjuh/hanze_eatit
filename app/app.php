@@ -64,5 +64,6 @@ class app extends MvcApplication {
      */
     protected $urls = array(
         '{^$}' => array('HomepageController', 'renderHomepage'),
+        '{^dish/(?P<pk>[\d]+)$}' => array('DishDetailController', 'renderDetails'),
     );
 }
