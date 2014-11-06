@@ -39,14 +39,17 @@ class DishesModel extends MvcBaseModel {
         $dishes = $this->allObjectsWithQuery("WHERE type = '$type'");
 
         foreach($dishes as $dish) {
-            $inStock = true;
+            $amountInStock = -1;
             $ingredients = $dishesIngredientModel->allObjectsWithQuery("WHERE dish_id = {$dish['pk']}");
             foreach($ingredients as $ingredient) {
                 $ingredientObj = $ingredientModel->getObjectByPk($ingredient['ingredient_id']);
-                if($ingredientObj['stock'] == 0) $inStock = false;
+                if($amountInStock == -1 || $ingredientObj['stock'] < $amountInStock) $amountInStock = $ingredientObj['stock'];
             }
 
-            if($inStock) $dishes_in_stock[] = $dish;
+            if($amountInStock > 0) {
+                $dish['stock'] = $amountInStock;
+                $dishes_in_stock[] = $dish;
+            }
         }
 
         return $dishes_in_stock;
