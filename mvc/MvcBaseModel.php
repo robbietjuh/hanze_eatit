@@ -66,7 +66,7 @@ class MvcBaseModel {
         if(!$query = $this->MvcInstance->db_conn->query("SELECT * FROM {$this->tableName} $query"))
             $this->MvcInstance->dieWithDebugMessageOr404(
                 "Error while executing query",
-                array('error' => $query->errorInfo()));
+                array('error' => $this->MvcInstance->db_conn->errorInfo()));
 
         $results = $query->fetchAll(PDO::FETCH_ASSOC);
 
