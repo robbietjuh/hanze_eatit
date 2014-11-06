@@ -66,7 +66,8 @@ div.content section.dishes article.dish figure {
     overflow: hidden;
 }
 
-div.content section.dishes article.dish figure a {
+div.content section.dishes article.dish figure a,
+div.content div.picture {
     width: 200px;
     height: 200px;
     overflow: hidden;
@@ -90,4 +91,31 @@ div.content section.dishes article.dish div.figcaption a {
     font-weight: 400;
     text-decoration: none;
     display: block;
+}
+
+div.content div.picture {
+    width: 100%;
+    height: 300px;
+}
+
+div.content div.buttons a {
+    margin-top: 10px;
+    display: block;
+    overflow: hidden;
+    background-color: #575861;
+    padding: 15px;
+    margin-right: 20px;
+    color: #fff;
+    text-align: center;
+    font-family: 'Open Sans', 'PT Sans', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-decoration: none;
+    width: 300px;
+    float: left;
+}
+
+div.content div.buttons a.add {
+    background-color: #0071b8;
+    font-weight: 300;
 }
