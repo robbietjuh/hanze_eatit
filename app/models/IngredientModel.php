@@ -18,7 +18,7 @@ class IngredientModel extends MvcBaseModel {
     /**
      * @var string Database table name for this model
      */
-    protected $tableName = "ingredients";
+    protected $tableName = "ingredient";
 
     /**
      * @var string Database table primary key field name for this model
