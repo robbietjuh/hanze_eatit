@@ -14,6 +14,9 @@
  * @license    MIT License
  */
 
+require_once 'DishesIngredientModel.php';
+require_once 'IngredientModel.php';
+
 class DishesModel extends MvcBaseModel {
     /**
      * @var string Database table name for this model
@@ -29,29 +32,39 @@ class DishesModel extends MvcBaseModel {
         if($type != 'dish' && $type != 'sideorder')
             return $this->MvcInstance->dieWithDebugMessageOr404("Type should be one of: dish, sideorder");
 
-        require_once 'DishesIngredientModel.php';
-        require_once 'IngredientModel.php';
-
-        $ingredientModel = new IngredientModel($this->MvcInstance);
-        $dishesIngredientModel = new DishesIngredientModel($this->MvcInstance);
 
         $dishes_in_stock = array();
         $dishes = $this->allObjectsWithQuery("WHERE type = '$type'");
 
         foreach($dishes as $dish) {
-            $amountInStock = -1;
-            $ingredients = $dishesIngredientModel->allObjectsWithQuery("WHERE dish_id = {$dish['pk']}");
-            foreach($ingredients as $ingredient) {
-                $ingredientObj = $ingredientModel->getObjectByPk($ingredient['ingredient_id']);
-                if($amountInStock == -1 || $ingredientObj['stock'] < $amountInStock) $amountInStock = $ingredientObj['stock'];
-            }
-
-            if($amountInStock > 0) {
-                $dish['stock'] = $amountInStock;
-                $dishes_in_stock[] = $dish;
-            }
+            $dishObj = $this->getDishByPkOr404($dish['pk']);
+            if($dishObj['stock'] > 0) $dishes_in_stock[] = $dishObj;
         }
 
         return $dishes_in_stock;
+    }
+
+    public function getDishByPkOr404($pk) {
+        if(!is_numeric($pk))
+            return $this->MvcInstance->dieWithDebugMessageOr404("Primary key should be an integer");
+
+        if(!$dish = $this->getObjectByPk($pk))
+            return $this->MvcInstance->dieWithDebugMessageOr404("Dish not found");
+
+        $ingredientModel = new IngredientModel($this->MvcInstance);
+        $dishesIngredientModel = new DishesIngredientModel($this->MvcInstance);
+
+        $amountInStock = -1;
+        $ingredients = $dishesIngredientModel->allObjectsWithQuery("WHERE dish_id = $pk");
+        $dish['ingredients'] = array();
+
+        foreach($ingredients as $ingredient) {
+            $ingredientObj = $ingredientModel->getObjectByPk($ingredient['ingredient_id']);
+            $dish['ingredients'][] = $ingredientObj;
+            if($amountInStock == -1 || $ingredientObj['stock'] < $amountInStock) $amountInStock = $ingredientObj['stock'];
+        }
+
+        $dish['stock'] = $amountInStock;
+        return $dish;
     }
 }
