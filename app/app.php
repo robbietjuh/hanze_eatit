@@ -65,5 +65,7 @@ class app extends MvcApplication {
     protected $urls = array(
         '{^$}' => array('HomepageController', 'renderHomepage'),
         '{^dish/(?P<pk>[\d]+)$}' => array('DishDetailController', 'renderDetails'),
+        '{^basket$}' => array('BasketController', 'renderBasket'),
+        '{^basket/add/(?P<pk>[\d]+)$}' => array('BasketController', 'addToBasket'),
     );
 }
