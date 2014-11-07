@@ -3,9 +3,9 @@
 
 /**
  * DishesIngredientModel.php
- * Hanzecontact
+ * EatIT
  *
- * This file contains the Departments model definition
+ * This file contains the Dishes-Ingredients model definition
  *
  * @author     R. de Vries <r.devries@robbytu.net>
  * @version    1.0.0
