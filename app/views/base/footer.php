@@ -1,6 +1,7 @@
     </div>
 
-    <a href="/basket" class="basket">Naar uw winkelmandje →</a>
+    <?php if(isset($this->data['basket'])) { ?><a href="/" class="basket">Terug naar de voorpagina →</a>
+    <?php } else { ?><a href="/basket" class="basket">Naar uw winkelmandje →</a><?php } ?>
 
     <footer>
         <div class="holder">
