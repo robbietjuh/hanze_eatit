@@ -22,6 +22,10 @@ class BasketController extends MvcBaseController {
 
         $this->data['title'] = 'Winkelmandje';
         $this->data['basket'] = $basket->getContents();
+        $this->data['grandtotal'] = 0.0;
+
+        foreach($this->data['basket'] as $item)
+            $this->data['grandtotal'] += $item['amount'] * $item['dish']['price'];
 
         $this->renderView("base/header");
         $this->renderView("basket_contents");
@@ -38,6 +42,17 @@ class BasketController extends MvcBaseController {
     public function removeFromBasket($args) {
         $basket = $this->loadModel("BasketModel");
         $this->data['message'] = $basket->removeFromBasket($args['pk'], 1);
+
+        $this->renderBasket($args);
+    }
+
+    public function updateBasket($args) {
+        $basket = $this->loadModel("BasketModel");
+
+        foreach($_POST as $id => $amount) {
+            $pk = substr($id, strlen('amount_'));
+            $this->data['message'] = $basket->addToBasket($pk, $amount);
+        }
 
         $this->renderBasket($args);
     }
