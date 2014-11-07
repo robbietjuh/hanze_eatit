@@ -21,7 +21,7 @@
 
             <div class="buttons">
                 <a href="#" onclick="document.forms[0].submit();">Winkelmandje updaten</a>
-                <a href="/" class="add">Bestellen</a>
+                <a href="/sideorders" class="add">Bestellen</a>
             </div>
             <?php } ?>
         </form>

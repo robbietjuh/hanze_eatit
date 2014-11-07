@@ -32,6 +32,23 @@ class BasketController extends MvcBaseController {
         $this->renderView("base/footer");
     }
 
+    public function renderBasketSideorders($args) {
+        $basket = $this->loadModel("BasketModel");
+        $dishes = $this->loadModel("DishesModel");
+
+        if(count($basket->getContents()) == 0) {
+            header("Location: /basket");
+            return;
+        }
+
+        $this->data['title'] = 'Winkelmandje';
+        $this->data['sideorders'] = $dishes->getDishesInStock('sideorder');
+
+        $this->renderView("base/header");
+        $this->renderView("basket_sideorders");
+        $this->renderView("base/footer");
+    }
+
     public function addToBasket($args) {
         $basket = $this->loadModel("BasketModel");
         $this->data['message'] = $basket->addToBasket($args['pk'], 1);

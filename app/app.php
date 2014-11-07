@@ -69,5 +69,6 @@ class app extends MvcApplication {
         '{^basket/add/(?P<pk>[\d]+)$}' => array('BasketController', 'addToBasket'),
         '{^basket/remove/(?P<pk>[\d]+)$}' => array('BasketController', 'removeFromBasket'),
         '{^basket/update$}' => array('BasketController', 'updateBasket'),
+        '{^sideorders$}' => array('BasketController', 'renderBasketSideorders'),
     );
 }
