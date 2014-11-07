@@ -34,5 +34,12 @@ class BasketController extends MvcBaseController {
 
         $this->renderBasket($args);
     }
+
+    public function removeFromBasket($args) {
+        $basket = $this->loadModel("BasketModel");
+        $this->data['message'] = $basket->removeFromBasket($args['pk'], 1);
+
+        $this->renderBasket($args);
+    }
 }
 
