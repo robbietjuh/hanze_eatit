@@ -14,6 +14,8 @@
  * @license    MIT License
  */
 
+session_start();
+
 class BasketController extends MvcBaseController {
     public function renderBasket($args) {
         $basket = $this->loadModel("BasketModel");
@@ -24,6 +26,13 @@ class BasketController extends MvcBaseController {
         $this->renderView("base/header");
         $this->renderView("basket_contents");
         $this->renderView("base/footer");
+    }
+
+    public function addToBasket($args) {
+        $basket = $this->loadModel("BasketModel");
+        $this->data['message'] = $basket->addToBasket($args['pk'], 1);
+
+        $this->renderBasket($args);
     }
 }
 
