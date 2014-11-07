@@ -120,6 +120,67 @@ div.content div.buttons a.add {
     font-weight: 300;
 }
 
+div.content section.basket article.basket_item {
+    border-bottom: solid 1px #eee;
+    padding: 10px;
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+
+div.content section.basket article.basket_item .picture {
+    padding-right: 40px;
+}
+
+div.content section.basket article.basket_item .name {
+    width: 350px;
+    margin-top: 25px;
+}
+
+div.content section.basket article.basket_item .name a {
+    color: #222;
+    text-decoration: none;
+}
+
+div.content section.basket article.basket_item .name a:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+div.content section.basket article.basket_item .amount input {
+    border: solid 1px #ccc;
+    padding: 10px;
+    width: 30px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+div.content section.basket article.basket_item .delete {
+    padding-top: 25px;
+}
+
+div.content section.basket article.basket_item .delete a {
+    color: #220000;
+    text-decoration: none;
+}
+
+div.content section.basket article.basket_item .delete a:hover {
+    color: #810000;
+    text-decoration: underline;
+}
+
+div.content section.basket article.basket_item .picture a {
+    display: block;
+    width: 80px;
+    height: 70px;
+    background-size: cover;
+    background-position: center center;
+}
+
+div.content section.basket article.basket_item span {
+    float: left;
+}
+
 a.basket {
     background-color: #575861;
     font-family: 'Georgia', sans-serif;
