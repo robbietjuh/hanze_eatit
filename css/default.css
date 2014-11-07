@@ -119,3 +119,73 @@ div.content div.buttons a.add {
     background-color: #0071b8;
     font-weight: 300;
 }
+
+a.basket {
+    background-color: #575861;
+    font-family: 'Georgia', sans-serif;
+    font-size: 30px;
+    font-style: italic;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    padding: 40px;
+    display: block;
+    overflow: hidden;
+    transition: background 0.3s linear;
+    width: 720px;
+    margin: 0 auto;
+}
+
+a.basket:hover {
+    background-color: #484950;
+}
+
+footer {
+    background-color: #3b3c43;
+    display: block;
+    clear: both;
+    width: 800px;
+    margin: 0 auto 100px;
+}
+
+footer .holder {
+    padding: 50px;
+    clear: both;
+    display: block;
+    overflow: hidden;
+}
+
+footer .holder .copyright {
+    float: left;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #9f9f9f;
+}
+
+footer .holder .copyright a {
+    color: #9f9f9f;
+    text-decoration: underline;
+}
+
+footer .holder .copyright a:hover {
+    color: #fff;
+}
+
+footer .holder .links {
+    margin-top: 22px;
+    float: right;
+    display: block;
+    overflow: hidden;
+}
+
+footer .holder .links a {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+footer .holder .links a:hover {
+    text-decoration: underline;
+}
